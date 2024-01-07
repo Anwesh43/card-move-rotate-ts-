@@ -61,14 +61,14 @@ export interface UseStyleProp {
 }
 
 export const useStyle = (w : number, h : number, scale : number) : UseStyleProp => {
-    const size : number = Math.min(w, h) / 10 
+    const size : number = Math.min(w, h) / 7 
     const position = 'absolute'
     const x : number = w / 2
     const y : number = h / 2
     return {
         boxStyle() : CSSProperties {
             const left = `${-size / 2}px`
-            const top = `${-h / 2 + (h / 2 - size) * scale}px`
+            const top = `${ -size + (-h / 2) * (1 - scale)}px`
             const width = `${size}px`
             const height = `${size}px`
             const background = `#69517B`
@@ -96,13 +96,15 @@ export const useStyle = (w : number, h : number, scale : number) : UseStyleProp 
             const left = `${w / 2 - (w / 2 + size / 2) * scale}px`
             const top = `0px`
             const width = `${size}px`
-            const height = `${size / 8}px`
+            const height = `${size / 2.5}px`
             const color = 'white'
-            const fontSize = '20px'
+            const fontSize = '16px'
             const background = `#2B1E1E`
             const display = 'flex'
             const justifyContent = 'center'
             const alignItems = 'center'
+            const border = `1px solid ${background}`
+            const cursor = 'pointer'
             return {
                 position,
                 left, 
@@ -114,7 +116,9 @@ export const useStyle = (w : number, h : number, scale : number) : UseStyleProp 
                 color, 
                 fontSize, 
                 justifyContent, 
-                alignItems
+                alignItems,
+                border,
+                cursor 
             }
         }
     }
