@@ -10,7 +10,7 @@ const Container : React.FC<AnimatedProp> = (prop : AnimatedProp) => {
     return (
         <div style = {containerStyle()}>
             <Box/>
-            <Button/>
+            <Button onClick = {prop.start}/>
         </div>
     )
 }
