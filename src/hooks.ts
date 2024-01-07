@@ -119,3 +119,10 @@ export const useStyle = (w : number, h : number, scale : number) : UseStyleProp 
         }
     }
 }
+
+export const useOnLoad = (mountCb : () => void, unmountCb : () => void = () => {}) => {
+    useEffect(() => {
+        mountCb()
+        return unmountCb 
+    }, []) 
+}
